@@ -79,6 +79,7 @@ public class ConfigPlotter
                 {
                     case ALWAYS_ANGRY_PIG_ZOMBIES:
                     case ANIMAL_EXP_NERF:
+                    case ANIMAL_OVERCROWD_CONTROL:
                     case BETTER_TNT:
                     case BETTER_TREE_CHOPPING:
                     case BLAZES_EXPLODE_ON_DEATH:
