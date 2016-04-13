@@ -5,9 +5,7 @@ import com.extrahardmode.ExtraHardMode;
 import com.extrahardmode.config.RootConfig;
 import com.extrahardmode.config.RootNode;
 import com.extrahardmode.config.messages.MessageNode;
-import com.extrahardmode.module.BlockModule;
 import com.extrahardmode.module.MsgModule;
-import com.extrahardmode.module.PlayerModule;
 import com.extrahardmode.service.ListenerModule;
 import java.util.List;
 import org.bukkit.World;
@@ -87,8 +85,6 @@ public class AnimalCrowdControl extends ListenerModule {
                                             && a.getType() != EntityType.OCELOT) {
                                         density++;
                                     }
-
-                                    //remind find the sound effect used
                                 }
                                 if (animal.isDead() || density <= threshold) {
                                     this.cancel();
