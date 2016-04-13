@@ -286,7 +286,12 @@ public enum MessageNode implements ConfigNode
     ANTIFARMING_DESSERT_WARNING
             ("AntifarmingDesert.Msg", MsgCategory.TUTORIAL, "antifarm_desert",
                     "&cDeserts are really dry and nothing grows here!"),
-
+    ANIMAL_OVERCROWD_CONTROL_MODE
+            ("AnimalOverCrowd.Mode", MsgCategory.TUTORIAL),
+    ANIMAL_OVERCROWD_CONTROL
+            ("AnimalOverCrowd.Msg", MsgCategory.TUTORIAL, "animal_overcrowd",
+                "&cOvercrowded barn can kill an animal try build it bigger!"),
+    
     //General Advice
     NETHER_WARNING_MODE
             ("NetherWarning.Mode", MsgCategory.TUTORIAL),
