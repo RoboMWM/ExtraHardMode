@@ -57,18 +57,33 @@ public class AnimalCrowdControl extends ListenerModule {
         final boolean animalOverCrowdControl = CFG.getBoolean(RootNode.ANIMAL_OVERCROWD_CONTROL, world.getName());
         final int threshold = CFG.getInt(RootNode.ANIMAL_OVERCROWD_THRESHOLD, world.getName());
 
+        //First check if config allow this feature
         if (animalOverCrowdControl) {
+            
+            //Get nearby entities from newly spawn animals
             List<Entity> cattle = e.getNearbyEntities(3, 3, 3);
             int density = 0;
 
+          /**
+            *Loop and check if entity is an animal while 
+            *looping count how many animals have spawned
+            * by incrementing density
+            */
             for (Entity a : cattle) {
                 if (a instanceof Animals
                         && a.getType() != EntityType.HORSE
                         && a.getType() != EntityType.WOLF
                         && a.getType() != EntityType.OCELOT) {
                     density++;
+                    
+                    //Check if the amount of animals is bigger than the threshold given
                     if (density > threshold) {
                         final LivingEntity animal = (LivingEntity) a;
+                        
+                      /**
+                        *This creates a runnable assign to each animals will close once
+                        *if animal is far enough from other animals or animal is dead
+                        */ 
                         new BukkitRunnable() {
 
                             boolean firstRun = true;
@@ -78,6 +93,7 @@ public class AnimalCrowdControl extends ListenerModule {
                                 List<Entity> cattle = e.getNearbyEntities(3, 3, 3);
                                 int density = 0;
 
+                                //this will be used to check if animal is far from other animals
                                 for (Entity a : cattle) {
                                     if (a instanceof Animals
                                             && a.getType() != EntityType.HORSE
@@ -86,10 +102,14 @@ public class AnimalCrowdControl extends ListenerModule {
                                         density++;
                                     }
                                 }
+                                
                                 if (animal.isDead() || density <= threshold) {
                                     this.cancel();
                                 } else {
-                                    //Hack to force animal to move away
+                                    /**
+                                     *Hack to force animal to move away exploits the default AI of animals
+                                     *the set Velocity make sure that no knockback is given
+                                     */
                                     if (firstRun) {
                                         firstRun = false;
                                         animal.damage(0, animal);
