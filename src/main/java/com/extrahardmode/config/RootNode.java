@@ -775,7 +775,15 @@ public enum RootNode implements ConfigNode
      * Disable drops from Iron Golems, especially iron?
      */
     IRON_GOLEM_NERF("Farming.Iron Golem Nerf", VarType.BOOLEAN, true),
-
+    /**
+     * Prevent animal overcrowding on a small area
+     */
+    ANIMAL_OVERCROWD_CONTROL("Farming.Animal Overcrowding Control.Enable", VarType.BOOLEAN, true),
+    /**
+     * Threshold/Number of animals before start damaging animals
+     */
+    ANIMAL_OVERCROWD_THRESHOLD("Farming.Animal Overcrowding Control.threshold", VarType.INTEGER, SubType.NATURAL_NUMBER, 10, 
+            "The amount of animals before start damaging them"),
     /**
      * #############################
      * # ADDITIONAL FALLING BLOCKS #
