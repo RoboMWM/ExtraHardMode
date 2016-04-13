@@ -290,7 +290,7 @@ public enum MessageNode implements ConfigNode
             ("AnimalOverCrowd.Mode", MsgCategory.TUTORIAL),
     ANIMAL_OVERCROWD_CONTROL
             ("AnimalOverCrowd.Msg", MsgCategory.TUTORIAL, "animal_overcrowd",
-                "&cOvercrowded barn can kill an animal try build it bigger!"),
+                "&cOvercrowded barn can kill an animal try building it bigger!"),
     
     //General Advice
     NETHER_WARNING_MODE
